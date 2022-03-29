@@ -10,11 +10,14 @@ const result = document.querySelector('.js-result');
 
 
 //Declarar funciones y eventos
-
+function getRandomNumber(max) { 
+    return Math.ceil(Math.random() * max); 
+}
 function handleClick (event){
-    
     event.preventDefault();
-    console.log('holiiiisss');
+
+   const number = getRandomNumber(6);
+  const optionSelected = select.value;
 }
 
 
@@ -22,8 +25,6 @@ function handleClick (event){
 
 
 
-function getRandomNumber(max) { 
-    return Math.ceil(Math.random() * max); 
-  } 
+
 
   button.addEventListener('click',handleClick);
