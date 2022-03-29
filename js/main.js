@@ -49,11 +49,12 @@ function restMoney(apostado) {
 
 
 function playOff (){
-    if (parseInt(money.innerHTML)>= 60){
+    if (parseInt(money.innerHTML)>= 200){
         button.classList.add('hidden');
         reset.classList.remove('hidden');
-    } else {
-      
+    } else if (parseInt(money.innerHTML)<= 0){
+      button.classList.add('hidden');
+        reset.classList.remove('hidden');
     }
 };
 reset.addEventListener('click',init);
