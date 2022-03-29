@@ -32,10 +32,11 @@ function handleClick(event) {
   const valor = money.innerHTML
   if (valor <= 0) {
     goPlay.innerHTML = "No tienes créditos para jugar! :(";
-    money.innerHTML = 0;
+    money.innerHTML = 0
+     playOff()
   } 
 
-  playOff()
+ 
 }
 button.addEventListener("click", handleClick);
 
@@ -45,10 +46,7 @@ function addMoney(apostado) {
 function restMoney(apostado) {
   money.innerHTML = parseInt(money.innerHTML) - apostado;
 }
-/*
-function resetPage(){
-    location. reload();
-*/
+
 
 function playOff (){
     if (parseInt(money.innerHTML)>= 60){
@@ -58,3 +56,4 @@ function playOff (){
       
     }
 };
+reset.addEventListener('click',init);
