@@ -28,6 +28,14 @@ function handleClick(event) {
     goPlay.innerHTML = "Has perdido todo lo apostado! :(";
     restMoney(apostado);
   }
+
+  const valor = money.innerHTML
+  if (valor <= 0) {
+    goPlay.innerHTML = "No tienes créditos para jugar! :(";
+    money.innerHTML = 0;
+  } 
+
+  playOff()
 }
 button.addEventListener("click", handleClick);
 
@@ -40,12 +48,13 @@ function restMoney(apostado) {
 /*
 function resetPage(){
     location. reload();
-}*/
+*/
 
 function playOff (){
-    if (parseInt(money.innerHTML))=== 200 {
+    if (parseInt(money.innerHTML)>= 60){
         button.classList.add('hidden');
         reset.classList.remove('hidden');
+    } else {
+      
     }
-}
-reset.addEventListener('click', resetPage);
+};
