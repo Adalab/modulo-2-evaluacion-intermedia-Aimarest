@@ -8,6 +8,7 @@ const inputNumer = document.querySelector(".js-inputNumber");
 const result = document.querySelector(".js-result");
 const goPlay = document.querySelector(".js-goPlay");
 const money = document.querySelector(".js-money");
+const reset = document.querySelector('.js-reset');
 
 //Declarar funciones y eventos
 function getRandomNumber(max) {
@@ -36,3 +37,8 @@ function addMoney(apostado) {
 function restMoney(apostado) {
   money.innerHTML = parseInt(money.innerHTML) - apostado;
 }
+
+function resetPage(){
+    location. reload();
+}
+reset.addEventListener('click', resetPage);
