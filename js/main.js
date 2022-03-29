@@ -37,8 +37,15 @@ function addMoney(apostado) {
 function restMoney(apostado) {
   money.innerHTML = parseInt(money.innerHTML) - apostado;
 }
-
+/*
 function resetPage(){
     location. reload();
+}*/
+
+function playOff (){
+    if (parseInt(money.innerHTML))=== 200 {
+        button.classList.add('hidden');
+        reset.classList.remove('hidden');
+    }
 }
 reset.addEventListener('click', resetPage);
