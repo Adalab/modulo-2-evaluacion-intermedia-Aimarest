@@ -4,7 +4,7 @@
 
 const button = document.querySelector(".js-button");
 const select = document.querySelector(".js-select");
-const inputNumer = document.querySelector(".js-inputNumber");
+const inputNumber = document.querySelector(".js-inputNumber");
 const result = document.querySelector(".js-result");
 const goPlay = document.querySelector(".js-goPlay");
 const money = document.querySelector(".js-money");
@@ -19,7 +19,7 @@ function handleClick(event) {
 
   const number = getRandomNumber(6);
   const optionSelected = select.value;
-  const apostado = inputNumer.value;
+  const apostado = inputNumber.value;
   result.innerHTML = `Resultado ${number}`;
   if (number === parseInt(optionSelected)) {
     goPlay.innerHTML = "Has ganado el doble de lo apostado! :)";
@@ -57,4 +57,15 @@ function playOff (){
         reset.classList.remove('hidden');
     }
 };
-reset.addEventListener('click',init);
+
+function handleClickReset(){
+ reset.classList.add('hidden');
+ button.classList.remove('hidden');
+ money.innerHTML = '50';
+ goPlay.innerHTML = 'Vamos a jugar!';
+ inputNumber.value = '0';
+ result.innerHTML = '';
+ optionSelected = '¿qué número apuestas?' ;
+}
+
+reset.addEventListener('click',handleClickReset);
