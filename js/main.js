@@ -17,7 +17,6 @@ inputNumber.addEventListener("keyup", controlInput);
 function controlInput() {
   const played = parseInt(inputNumber.value);
   const balance = parseInt(money.innerHTML);
-  debugger;
   if (played > balance) {
     console.log("holis");
     button.classList.add("hidden");
@@ -28,15 +27,26 @@ function controlInput() {
     button.classList.remove("hidden");
   }
 }
+function controlSelected(event) {
+  event.preventDefault();
+  const disable = select.value;
+  if (disable === "¿qué número apuestas?") {
+    goPlay.innerHTML = "Debes elegir un número para realizar tu apuesta";
+    button.classList.add("hidden");
+  } else {
+    button.classList.remove("hidden");
+    paintResult();
+  }
+}
 
 function getRandomNumber(max) {
   return Math.ceil(Math.random() * max);
 }
-function handleClick(event) {
+/*function handleClick(event) {
   event.preventDefault();
 
   paintResult();
-}
+}*/
 function paintResult() {
   const number = getRandomNumber(6);
   let apostado = inputNumber.value;
@@ -59,8 +69,12 @@ function paintResult() {
     playOff();
   }
 }
-
-button.addEventListener("click", handleClick);
+function showButton() {
+  button.classList.remove("hidden");
+  goPlay.innerHTML = "Vamos a jugar!!";
+}
+button.addEventListener("click", controlSelected);
+select.addEventListener("change", showButton);
 
 function addMoney(apostado) {
   money.innerHTML = parseInt(money.innerHTML) + 2 * apostado;
