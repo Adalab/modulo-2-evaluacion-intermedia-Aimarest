@@ -42,11 +42,6 @@ function controlSelected(event) {
 function getRandomNumber(max) {
   return Math.ceil(Math.random() * max);
 }
-/*function handleClick(event) {
-  event.preventDefault();
-
-  paintResult();
-}*/
 function paintResult() {
   const number = getRandomNumber(6);
   let apostado = inputNumber.value;
@@ -71,10 +66,11 @@ function paintResult() {
 }
 function showButton() {
   button.classList.remove("hidden");
+  showtext();
+}
+function showtext() {
   goPlay.innerHTML = "Vamos a jugar!!";
 }
-button.addEventListener("click", controlSelected);
-select.addEventListener("change", showButton);
 
 function addMoney(apostado) {
   money.innerHTML = parseInt(money.innerHTML) + 2 * apostado;
@@ -101,3 +97,5 @@ function handleClickReset() {
   optionSelected = "¿qué número apuestas?";
 }
 reset.addEventListener("click", handleClickReset);
+button.addEventListener("click", controlSelected);
+select.addEventListener("change", showButton);
